@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+</head>
+<body id="total">
+    <div id="l">
+        <a href="home.html"><button class="btn btn-outline-info">Home</button></a>
+        <a><button class="btn btn-outline-info"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button></a>
+        <a href="aboutus.html"><button class="btn btn-outline-info">About us</button></a>
+    </div>
+    <div id="a">
+        <h1>DRUG PREDICTOR!!!</h1>
+    </div>
+    <br>
+    <div id="b" class="row-fluid">
+            <select class="selectpicker contentpicker" data-show-subtext="true" data-live-search="true" id="select">
+                <option >Select</option>
+                <option value="fever">Fever</option>
+                <option value="cold">Cold</option>
+                <option value="cough">Cough</option>
+                <option value="headache">Headache</option>
+                <option value="vomitings">Vomitings</option>
+                <option value="Allergies">Allergies</option>
+                <option value="Conjunctivitis">Conjunctivitis</option>
+                <option value="Stomachache">Stomachache</option>
+                <option value="Motions">Motions</option>
+                <option value="Swelling">Swelling</option>
+            </select>
+        <button href="#" type="submit" id="bu" onclick="getdrug()">Check</button>
+        <br>
+        <p id="s">The drug is: <a  id ="p" class="output"></a></p>
+    </div>
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="/action_page.php" method="post" id="modal-content">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required><br>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+      <br>
+      <button type="button" class="btn btn-success" onclick="document.getElementById('id01').style.display='none'">Login</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+<div id="footer">
+    <p>Designed by 47<br>&copy;All rights are reserved.</p>
+</div>
+    <script>
+        function getdrug() {
+            var p=document.getElementById("p");
+            selectElement = document.querySelector('#select');
+            output = selectElement.value;
+            if(output=='fever'){
+                x='Paracetmol';
+            }
+            if(output=='cold'){
+                x='Cetirizine';
+            }
+            if(output=='cough'){
+                x='Dextromethorphan';
+            }
+            if(output=='headache'){
+                x='Acetaminophen';
+            }
+            if(output=='vomitings'){
+                x='Diphenhydramine';
+            }
+            if(output=='Allergies'){
+                x='Antihistamines';
+            }
+            if(output=='Conjunctivitis'){
+                x='Corticosteroids';
+            }
+            if(output=='Stomachache'){
+                x='Butylbromide';
+            }
+            if(output=='Motions'){
+                x='Racecadotril';
+            }
+            if(output=='Swelling'){
+                x='Trypsin';
+            }
+            p.href += x+".html";
+            document.querySelector('.output').textContent = x;
+        }
+    </script>
+    <script>
+        var modal = document.getElementById('id01');
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        </script>
+</body>
+</html>
